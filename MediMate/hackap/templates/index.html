@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title -->
+  <title>MediMate</title>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{% static "style/style.css" %}">
+  <!-- JavaScript File -->
+  <script src="{% static "js/script.js" %}" defer></script>
+  <link rel="stylesheet" text="text/CSS"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" text="text/CSS"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  
+    <style>
+        /* Your CSS styles */
+        header {
+            width: 100%;
+            background-image: url("{% static '/image/cover.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            min-height: 100vh;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        </style>
+
+</head>
+{% if not user.is_superuser %}
+<body onload="myFunction()">
+  <div class="loading-wrapper">
+    <img src="{% static '/image/logo.png' %}" id="loading" />
+  </div>
+
+  <!-- Back to top button -->
+  <a href="#header" id="back-top-div" class="back-top-wrap">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+  <header id="header">
+    <nav class="nav" id="nav">
+      <div>
+        <a class="navbar-brand" href="#!"><img src="{% static '/image/logo.png' %}" alt="Logo" class="logo" /></a>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <ul class="links" id="navmenu">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#services">SERVICES </a></li>
+          <li><a href="html/contact.html">CONTACT US </a></li>
+        </ul>
+      </div>
+      {% if user.is_authenticated %}
+      <!-- User is authenticated, hide the button -->
+      <button class="login-button"><a href="/logout">logout</a></button>
+      {% else %}
+      
+      <button class="login-button"><a href="{% url 'login' %}">SignUp / Login</a></button>
+  {% endif %}
+      <div class="hamburger" id="ham">
+        <i class="cancel fa-solid fa-xmark"></i>
+
+        <svg class="burger" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
+          height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z">
+          </path>
+        </svg>
+      </div>
+    </nav>
+    <div class="menu" id="menu">
+      <ul class="menu-link">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES </a></li>
+        <li><a href="html/contact.html">CONTACT US </a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <h1>Welcome to MediMate</h1>
+      <h3>Navigate Wellness with Ease</h3>
+      <a href="#services" class="button-34" alt="Explore">Explore</a>
+    </div>
+
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h3><span style="color: #08D9D6; font-size: 3.5rem;">Consult to Doctors
+    </span></h3>
+
+    <div class="box">
+      <div data-aos="fade-up" data-aos-duration="800" class="card">
+        <img src="{% static "/image/doctor2.jpg" %}" alt="" loading="lazy">
+        <h5>Dr. Adam Taylor</h5>
+        <div class="pra">
+          <p>Dermatologist</p>
+          <a href="Contact"><button>Connect</button></a>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-duration="800" class="card">
+        <img src="{% static "/image/doctor1.png" %}" alt="chaitri" loading="lazy">
+        <h5>Dr. Rachel Wong</h5>
+        <div class="pra">
+          <p class="p">Cardiologist</p>
+          <a href="Contact"><button class="he">Connect</button></a>
+        </div>
+
+      </div>
+
+      <div data-aos="fade-up" data-aos-duration="800" class="card">
+        <img src="{% static "/image/doctor3.jpg" %}" alt="sasanka" loading="lazy">
+        <h5>Dr. Marcus</h5>
+        <div class="pra">
+          <p>Pediatrician</p>
+          <a href="Contact"><button>Connect</button></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <h1>Our Services</h1>
+    <div data-aos="zoom-in" data-aos-duration="800" class="container">
+      <div class="responsive ">
+        <div class="round-image">
+          <img src="{% static "/image/predict.png" %}" alt="prediction" loading="lazy" />
+        </div>
+        <div class="description">
+          <h2>Disease Prediction</h2>
+          <p>
+            Try to get an idea about your disease from symptoms.
+          </p>
+          <a href="/predict/">
+            Let's Explore
+          </a>
+        </div>
+      </div>
+      <div data-aos="zoom-in" data-aos-duration="800" class="responsive">
+        <div class="round-image">
+          <img src="{% static "/image/ai-health.jpg" %}" alt="ai health" loading="lazy" />
+        </div>
+        <div class="description">
+          <h2>AI Health Assistant</h2>
+          <p>
+            Talk to our special AI Health Assistant
+          </p>
+          <a href="/aiassist/">
+            Let's Explore
+          </a>
+        </div>
+      </div>
+      <div data-aos="zoom-in" data-aos-duration="800" class="responsive">
+        <div class="round-image">
+          <img src="{% static "/image/medicine.jpg" %}" alt="medicine" loading="lazy" />
+        </div>
+        <div class="description">
+          <h2>Medicine Availibility</h2>
+          <p>
+            Check the Availibility of a medicine in your area from different vendors
+          </p>
+          <a href="/shopping/">
+            Let's Explore
+          </a>
+        </div>
+    </div>
+</div>
+</section>
+{% else %}
+<p></p>
+  {% endif %}
+
+  <!-- footer start -->
+  <footer>
+    <div class="footer-container">
+      <!--logo and info column-->
+      <div class="col">
+        <!--logo insert-->
+        <a href="#" style="text-decoration: none;" class="footercontent">
+          <h2 class="footerheading">MediMate</h2>
+          <p class="footerpara">Navigate Wellness with Ease</p>
+        </a>
+      </div>
+
+      <!--ADDRESS COLUMN-->
+
+      <div class="footer-side-col">
+        <div class="col">
+          <h3>
+            ADDRESS
+            <div class="underline"><span></span></div>
+          </h3>
+          <p>Greater Noida, India</p>
+          <p class="email-id"><a href="mailto:medimate@gmail.com">medimate@gmail.com</a></p>
+        </div>
+        <!--HOME COLUMN-->
+        <div class="col">
+          <h3>HOME</h3>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li>
+              <a href="https://github.com/whonehuljain/medimate">Contribute</a>
+            </li>
+            <li>
+              <a href="#">Donate</a>
+            </li>
+          </ul>
+        </div>
+        <!--OUR SERVICES COLUMN-->
+        <div class="col">
+          <h3>
+            SERVICES
+            <div class="underline"><span></span></div>
+          </h3>
+          <ul>
+            <li>
+              <a href="">Disease Prediction</a>
+            </li>
+            <li>
+              <a href="">AI Health Assistant</a>
+            </li>
+            <li>
+              <a href="">Medicine Availibility</a>
+            </li>
+          </ul>
+        </div>
+        <!--CONTACTS COLUMN-->
+        <div class="col">
+          <h3>
+            CONTACTS
+            <div class="underline"><span></span></div>
+          </h3>
+          <div class="social-menu">
+            <ul>
+              <a href="https://twitter.com/(anyone)" target="_blank">
+                <li id="social-twitter"><i class="fab fa-2x fa-twitter"></i></li>
+              </a>
+              <a href="https://github.com/(anyone)" target="_blank">
+                <li id="social-github"><i class="fab fa-2x fa-github"></i></li>
+              </a>
+              <a href="https://www.linkedin.com/in/(anyone)" target="_blank">
+                <li id="social-linkedin"><i class="fab fa-2x fa-linkedin-in"></i></li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+
+    let preloader = document.querySelector(".loading-wrapper");
+    function myFunction() {
+      preloader.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    let navbar = document.querySelector("#nav");
+    let navmenu = document.querySelector("#navmenu");
+
+    window.onscroll = function () {
+      if (window.pageYOffset >= navmenu.offsetTop) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    };
+
+    window.onscroll = () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('nav-active');
+      } else {
+        navbar.classList.remove('nav-active');
+      }
+    };
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./serviceworker.js')
+          .then((reg) => console.log('Success', reg.scope))
+          .catch((err) => console.log('Error', err))
+      })
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="index.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

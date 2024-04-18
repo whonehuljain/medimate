@@ -1,0 +1,256 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+    <link rel="stylesheet" href="{% static "style/style.css" %}">
+    <script src="{% static "js/script.js" %}" defer></script>
+    <link rel="stylesheet" text="text/CSS"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" text="text/CSS"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Style for form container */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for input field */
+        input[type="text"] {
+            width: calc(100% - 70px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            background-color: #f9f9f9;
+            outline: none;
+            font-size: 16px;
+            margin-right: 10px;
+            padding-left: 20px;
+        }
+
+        /* Style for submit button */
+        button[type="submit"] {
+            width: 70px;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        /* Hover effect for submit button */
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for output screen */
+        #output {
+            width: 30em;
+            height: 20em;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            color: #333333;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="output"> {{ response }}</div>
+<form action="/aiassist/" method="post">
+    {% csrf_token %}
+    <input type="text" name="query" id="query" placeholder="Type a message">
+    <button type="submit">Send</button>
+</form>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+
+    <link rel="stylesheet" text="text/CSS"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" text="text/CSS"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Style for form container */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for input field */
+        input[type="text"] {
+            width: calc(100% - 70px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            background-color: #f9f9f9;
+            outline: none;
+            font-size: 16px;
+            margin-right: 10px;
+            padding-left: 20px;
+        }
+
+        /* Style for submit button */
+        button[type="submit"] {
+            width: 70px;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        /* Hover effect for submit button */
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for microphone button */
+        button#micButton {
+            width: 40px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        /* Hover effect for microphone button */
+        button#micButton:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for output screen */
+        #output {
+            width: 30em;
+            height: 20em;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            color: #333333;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="output"> {{ response }}</div>
+<form action="/aiassist/" method="post">
+    {% csrf_token %}
+    <input type="text" name="query" id="query" placeholder="Type a message">
+    <button type="submit">Send</button>
+    <button id="micButton" type="button" title="Speak"><i class="fas fa-microphone"></i></button>
+</form>
+
+<script>
+    // Function to handle speech recognition
+function startSpeechRecognition() {
+    const recognition = new webkitSpeechRecognition() || SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById('query').value = transcript;
+    };
+
+    recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+    };
+
+    recognition.start();
+}
+
+// Event listener for microphone button
+document.getElementById('micButton').addEventListener('click', startSpeechRecognition);
+
+</script>
+</body>
+
+</html>
