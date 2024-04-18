@@ -5,7 +5,7 @@ def index(request):
     return render(request, 'index.html')
 
 
-# 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
+
 # views.py
 import requests
 from django.shortcuts import render
@@ -35,7 +35,7 @@ from django.shortcuts import redirect
 import openai
 
 def get_chatgpt_response(query):    
-    openai.api_key = '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'
+    openai.api_key = 'YOUR OPENAI API'
     try:
         prompt = query
 
