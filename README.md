@@ -67,7 +67,8 @@ To set up the project locally, follow these steps:
     pip install -r requirements.txt
     
 5. **Navigate to the MediMate Directory**
-This is where the complete project resides.
+
+  This is where the complete project resides.
 
     ```bash
     cd MediMate
