@@ -4,6 +4,7 @@ asgiref
 serpapi
 requests
 google-search-results
+openai==0.28
 numpy
 joblib
 whitenoise
