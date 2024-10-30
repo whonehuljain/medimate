@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: "Merriweather Sans", sans-serif;
+}
+
+body {
+    background-color: #121212;
+    height: 100%;
+}
+
+.search-bar {
+    /* display: block; */
+    /* text-align: center; */
+    display: grid;
+    place-content: center;
+    padding: 1rem 2rem;
+}
+
+.search-box {
+    background-color: #fff;
+    max-width: 600px;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: #333;
+}
+
+input {
+    width: 500px;
+    height: 50px;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    padding: 6px 10px 6px 20px;
+}
+
+button {
+    height: 50px;
+    background-color: transparent;
+    width: 50px;
+    outline: 0;
+    border: none;
+}
+
+.fa-solid {
+    font-size: 22px;
+    width: 25px;
+    color: #555;
+    cursor: pointer;
+}
+
+::placeholder {
+    color: #555;
+}
+
+.options {
+    z-index: 10;
+    background-color: #fff;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.options ul {
+    list-style: none;
+    border-top: 1px solid #555;
+    padding: 10px 10px;
+}
+
+.options ul li {
+    font-size: 18px;
+    list-style: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #555;
+    /* color: #fff; */
+}
+
+.options ul li:hover {
+    background-color: #e9f3ff;
+}
+
+.tags {
+    position: absolute;
+    left: 30%;
+    top: 100px;
+    /* margin-top:; */
+    z-index: 1;
+    /* display: flex; */
+}
+
+.tags ul {
+    display: flex;
+    gap: 15px;
+}
+
+.tags ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background-color: white;
+    opacity: 0.8;
+    font-size: 15px;
+    padding: 5px 2px 5px 8px;
+    border: 0;
+    border-radius: 3px;
+}
+
+.tags ul li .fa-solid {
+    font-size: 20px;
+}
+
+.submit {
+    width: 100px;
+    font-size: 22px;
+    outline: 0;
+    border: 0;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
+}
