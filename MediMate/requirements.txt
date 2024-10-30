@@ -6,5 +6,6 @@ requests
 google-search-results
 openai==0.28
 numpy
+scikit-learn
 joblib
 whitenoise
