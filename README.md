@@ -58,27 +58,24 @@ To set up the project locally, follow these steps:
    git clone https://github.com/your-username/medimate.git
 
 3. **Navigate to the Project Directory**
+   
+   This is where the complete project resides.
+   
     ```bash
-    cd medimate
+    cd medimate/MediMate
 
 4. **Install Dependencies**
 
     ```bash
     pip install -r requirements.txt
     
-5. **Navigate to the MediMate Directory**
-
-    This is where the complete project resides.
-
-    ```bash
-    cd MediMate
-6. **Apply Migrations**
+5. **Apply Migrations**
 
     ```bash
     python manage.py makemigrations
     python manage.py migrate
 
-7. **Run the Server**
+6. **Run the Server**
 
     ```bash
     python manage.py runserver
