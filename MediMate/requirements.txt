@@ -4,11 +4,6 @@ asgiref
 serpapi
 requests
 google-search-results
-openai==0.28
 numpy
 joblib
-scikit-learn
-seaborn
-matplotlib
-pandas
 whitenoise
