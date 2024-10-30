@@ -6,6 +6,9 @@ requests
 google-search-results
 openai==0.28
 numpy
-scikit-learn
 joblib
+scikit-learn
+seaborn
+matplotlib
+pandas
 whitenoise
