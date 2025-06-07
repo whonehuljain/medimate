@@ -7,8 +7,9 @@ google-search-results
 openai==0.28
 numpy
 joblib
-scikit-learn
+scikit-learn==1.4.2
 seaborn
 matplotlib
 pandas
 whitenoise
+gunicorn

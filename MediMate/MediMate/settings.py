@@ -25,8 +25,13 @@ SECRET_KEY = 'django-insecure-0h&30!gei-ljnx7#d_%&%*vij7qa31^z2lxenj^sed&+#fft8m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+import os
+ALLOWED_HOSTS = [
+    os.environ.get('RENDER_EXTERNAL_HOSTNAME', 'localhost'),
+    'medimate-xr4e.onrender.com', 
+    'localhost',
+    '127.0.0.1',
+]
 
 # Application definition
 
